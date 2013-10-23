@@ -17,8 +17,10 @@ A user guide can be downloaded from http://gcovr.com.
 Gcovr development moved to this repository in September, 2013 from
 Sandia National Laboratories.
 
-Qibuild Integration
+qiBuild Integration
 -------------------
+
+qiBuild repository: https://github.com/aldebaran/qibuild
 
 > qibuild configure -c toolchain --coverage  
 > qibuild make -c toolchain  
