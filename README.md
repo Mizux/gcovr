@@ -17,3 +17,12 @@ A user guide can be downloaded from http://gcovr.com.
 Gcovr development moved to this repository in September, 2013 from
 Sandia National Laboratories.
 
+Qibuild Integration
+-------------------
+
+> qibuild configure -c toolchain --coverage  
+> qibuild make -c toolchain  
+> ./build-toolchain/sdk/bin/mytest
+
+> gcovr -r . --exclude test build-toolchain --html --html-detail -o out.html
+
