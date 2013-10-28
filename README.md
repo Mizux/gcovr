@@ -26,5 +26,10 @@ qiBuild repository: https://github.com/aldebaran/qibuild
 > qibuild make -c toolchain  
 > ./build-toolchain/sdk/bin/mytest
 
-> gcovr -r . --exclude test build-toolchain --html --html-detail -o out.html
+> gcovr -d -r . --exclude test build-toolchain --html --html-detail -o out.html
+
+Option:  
+--delete -d : avoid to have results merged with the previous run (i.e. clean gcov stat).  
+--root -r : specify the root point (i.e. filter all files not in this repository our below).  
+--exclude "pattern" : remove all files matching the pattern (i.e. remove test directory from coverage report).  
 
