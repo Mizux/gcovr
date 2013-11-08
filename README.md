@@ -22,14 +22,22 @@ qiBuild Integration
 
 qiBuild repository: https://github.com/aldebaran/qibuild
 
+Always run gcovr in the same directory in which qiproject.xml belongs.
+And always specify root point as "." otherwise parsing fails -_-
+
 > qibuild configure -c toolchain --coverage  
 > qibuild make -c toolchain  
 > ./build-toolchain/sdk/bin/mytest
 
-> gcovr -d -r . --exclude test build-toolchain --html --html-detail -o out.html
+> gcovr -d -r . --filter mylib --exclude test build-toolchain --html --html-detail -o out.html
 
 Option:  
---delete -d : avoid to have results merged with the previous run (i.e. clean gcov stat).  
+--delete -d : avoid to have results merged with the previous gcovr run (i.e. clean gcov stat)  
+Need to run tests again to regenerate coverage log.  
 --root -r : specify the root point (i.e. filter all files not in this repository our below).  
---exclude "pattern" : remove all files matching the pattern (i.e. remove test directory from coverage report).  
+Always use "." as root directory.  
+--filter "pattern": keep all files matching the pattern  
+(i.e. if your repo contains several modules/library but you want only want coverage for one module/library).  
+--exclude "pattern" : remove all files matching the pattern
+(i.e. remove test directory from coverage report).  
 
