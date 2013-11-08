@@ -22,8 +22,8 @@ qiBuild Integration
 
 qiBuild repository: https://github.com/aldebaran/qibuild
 
-Always run gcovr in the same directory in which qiproject.xml belongs.
-And always specify root point as "." otherwise parsing fails -_-
+Always run gcovr in the same directory in which qiproject.xml belongs.  
+And always specify root point as "." otherwise parsing fails -_-  
 
 > qibuild configure -c toolchain --coverage  
 > qibuild make -c toolchain  
