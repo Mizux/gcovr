@@ -8,5 +8,8 @@ return x+y;
 int fourbar_()
 {
 int x=1;
-return 2*x;
+if (x)
+    return 2*x;     /* This is a really long comment that confirms whether gcovr colors lines that exceed normal expectations. */
+else
+    return x;
 }

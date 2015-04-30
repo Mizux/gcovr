@@ -35,7 +35,6 @@ class GcovrXml(unittest.TestCase):
         F = open('reference/coverage.xml', 'w')
         F.write(refData)
         F.close()
-        #self.assertSequenceEqual(testData.split('\n'), refData.split('\n'))
         self.assertMatchesXmlBaseline('coverage.xml', os.path.join('reference','coverage.xml'), tolerance=1e-4)
 
 GcovrXml = unittest.category('smoke')(GcovrXml)
@@ -87,6 +86,7 @@ def run(cmd):
 @unittest.nottest
 def gcovr_test_txt(self, name):
     os.chdir(os.path.join(basedir,name))
+    run(["make","clean"]) or self.fail("Clean failed")
     run(["make"]) or self.fail("Make failed")
     run(["make","txt"]) or self.fail("Execution failed")
     self.assertFileEqualsBaseline("coverage.txt", "reference/coverage.txt")
@@ -96,6 +96,7 @@ def gcovr_test_txt(self, name):
 @unittest.nottest
 def gcovr_test_xml(self, name):
     os.chdir(os.path.join(basedir,name))
+    run(["make","clean"]) or self.fail("Clean failed")
     run(["make"]) or self.fail("Make failed")
     run(["make","xml"]) or self.fail("Execution failed")
     self.compare_xml()
